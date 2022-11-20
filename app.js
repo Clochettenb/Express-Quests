@@ -27,11 +27,14 @@ app.listen(port, (err) => {
   }
 });
 
-app.post("/api/movies", movieHandlers.postMovie);
-app.post("/api/users", movieHandlers.postUsers);
+const { validateMovie } = require("./validators.js");
+const { validateUser } = require("./validators.js");
 
-app.put("/api/movies/:id", movieHandlers.updateMovie);
-app.put("/api/users/:id", movieHandlers.updateUser);
+app.post("/api/movies", validateMovie, movieHandlers.postMovie);
+app.post("/api/users", validateUser, movieHandlers.postUsers);
+
+app.put("/api/movies/:id", validateUser, movieHandlers.updateMovie);
+app.put("/api/users/:id", validateUser, movieHandlers.updateUser);
 
 app.delete("/api/movies/:id", movieHandlers.deleteMovie);
 app.delete("/api/users/:id", movieHandlers.deleteUser);
