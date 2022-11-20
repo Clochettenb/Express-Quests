@@ -11,7 +11,7 @@ const movieSchema = Joi.object({
 const validateMovie = (req, res, next) => {
   const { title, director, year, color, duration } = req.body;
 
-  const { error } = userSchema.validate(
+  const { error } = movieSchema.validate(
     { title, director, year, color, duration },
     { abortEarly: false }
   );
