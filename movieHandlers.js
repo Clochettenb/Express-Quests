@@ -97,7 +97,7 @@ const getUsers = (req, res) => {
     where.push({
       column: "city",
       value: req.query.city,
-      operator: "<=",
+      operator: "=",
     });
   }
 
