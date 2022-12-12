@@ -27,8 +27,7 @@ app.listen(port, (err) => {
   }
 });
 
-const { validateMovie } = require("./validators.js");
-const { validateUser } = require("./validators.js");
+const { validateMovie, validateUser } = require("./validator.js");
 
 const { hashPassword } = require("./auth.js");
 
